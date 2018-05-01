@@ -12,35 +12,39 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
-public class AOSWebFlynnTest {
+public class AOSWebTest {
     private static RemoteWebDriver driver;
     private static DesiredCapabilities capabilities = DesiredCapabilities.chrome();
 
     @BeforeClass
     public static void openBrowser() throws MalformedURLException {
 
-        String clientID = "t511780658_oauth2-spIbj2ZmaRBAWlTZ6eEY@hpe.com";
-        String clientSecret = "ySLij1wSGaMjjmbQt46c";
-        String SeleniumURL = "http://ftaas.saas.hpe.com/wd/hub/";
+    //    String clientID = "t511780658_oauth2-spIbj2ZmaRBAWlTZ6eEY@hpe.com";
+      //  String clientSecret = "ySLij1wSGaMjjmbQt46c";
+       // String SeleniumURL = "http://ftaas.saas.hpe.com/wd/hub/";
         String testName = "Ramesh-Selenium/Java-AOS-remote-exec";
 
-        String str = System.getenv("SELENIUM_ADDRESS");
+      /*  String str = System.getenv("SELENIUM_ADDRESS");
         if (str != null) {
-            clientID = System.getenv("SRF_CLIENT_ID");
-            clientSecret = System.getenv("SRF_CLIENT_SECRET");
+        //    clientID = System.getenv("SRF_CLIENT_ID");
+          //  clientSecret = System.getenv("SRF_CLIENT_SECRET");
             SeleniumURL = System.getenv("SELENIUM_ADDRESS");
             testName = "Ramesh_Selenium/Java-AOS";
         }
-
+*/
         //capabilities.setVersion("latest");
         //capabilities.setBrowserName("Firefox");
         capabilities.setCapability("version", "64");        // latest
         capabilities.setCapability("platform", "Windows 10");
         capabilities.setCapability("resolution", "1366x768");
         capabilities.setCapability("testName", testName);
-        capabilities.setCapability("SRF_CLIENT_ID", clientID);
-        capabilities.setCapability("SRF_CLIENT_SECRET", clientSecret);
-        driver = new RemoteWebDriver(new URL(SeleniumURL), capabilities);
+        capabilities.setCapability("SRF_CLIENT_ID", System.getenv("SRF_CLIENT_ID"));
+        capabilities.setCapability("SRF_CLIENT_SECRET", System.getenv("SRF_CLIENT_SECRET"));
+
+        //  capabilities.setCapability("SRF_CLIENT_ID", clientID);
+        //capabilities.setCapability("SRF_CLIENT_SECRET", clientSecret);
+        //driver = new RemoteWebDriver(new URL(SeleniumURL), capabilities);
+        driver = new RemoteWebDriver(new URL(System.getenv("SELENIUM_ADDRESS")), capabilities);
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
 

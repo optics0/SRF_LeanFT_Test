@@ -27,8 +27,12 @@ public class AA_Simple_SeleniumTest {
     public static void configToSRF()throws MalformedURLException{
         DesiredCapabilities capabilities = DesiredCapabilities.chrome(); // This is the type of the browser that you will use in your test
 
-        capabilities.setCapability("SRF_CLIENT_ID", "t511780658_oauth2-spIbj2ZmaRBAWlTZ6eEY@hpe.com"); // Your Client ID here
-        capabilities.setCapability("SRF_CLIENT_SECRET", "ySLij1wSGaMjjmbQt46c"); // Your Client Secret here
+       capabilities.setCapability("SRF_CLIENT_ID", "t511780658_oauth2-spIbj2ZmaRBAWlTZ6eEY@hpe.com"); // Your Client ID here
+       capabilities.setCapability("SRF_CLIENT_SECRET", "ySLij1wSGaMjjmbQt46c"); // Your Client Secret here
+
+    //    capabilities.setCapability("SRF_CLIENT_ID", System.getenv("SRF_CLIENT_ID"));
+      //  capabilities.setCapability("SRF_CLIENT_SECRET", System.getenv("SRF_CLIENT_SECRET"));
+
         capabilities.setCapability("testName","Ramesh_Simple_Selenium"); // This will be the name of the test that will appear in SRF
 
         capabilities.setVersion("latest"); // Change this to your browser version. ("54")
@@ -38,12 +42,15 @@ public class AA_Simple_SeleniumTest {
 
         //URL FTAAS_URL = new URL("http","ftaas.saas.hpe.com", 443,"/wd/hub/");
 
+        
 
 
 
 //        local = new ChromeDriver();
         //driver = new RemoteWebDriver(FTAAS_URL, capabilities);
         driver = new RemoteWebDriver(new URL(SeleniumURL), capabilities);
+
+        //driver = new RemoteWebDriver(new URL(System.getenv("SELENIUM_ADDRESS")), capabilities);
     }
 
     @Test

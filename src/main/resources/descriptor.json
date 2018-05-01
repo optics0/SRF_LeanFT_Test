@@ -1,8 +1,6 @@
 [
   {
-    "runnableClass": "com.mf.AA_Simple_SeleniumTest",
-    "framework": "junit"
-    "runnableClass": "com.mf.AOSWebFlynnTest",
+     "runnableClass": "com.mf.AOSWebTest",
     "framework": "junit"
   }
 ]
