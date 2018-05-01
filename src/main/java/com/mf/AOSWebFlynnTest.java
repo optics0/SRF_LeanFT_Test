@@ -12,24 +12,24 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
-public class AOSWebTest {
+public class AOSWebFlynnTest {
     private static RemoteWebDriver driver;
     private static DesiredCapabilities capabilities = DesiredCapabilities.chrome();
 
     @BeforeClass
     public static void openBrowser() throws MalformedURLException {
 
-        String clientID = "t511780658_oauth2-r59KGnAQQhMfzYTlnpar@hpe.com";
-        String clientSecret = "pskKNTcojAyDEpMpw1gS";
+        String clientID = "t511780658_oauth2-spIbj2ZmaRBAWlTZ6eEY@hpe.com";
+        String clientSecret = "ySLij1wSGaMjjmbQt46c";
         String SeleniumURL = "http://ftaas.saas.hpe.com/wd/hub/";
-        String testName = "Selenium/Java-AOS-remote-exec";
+        String testName = "Ramesh-Selenium/Java-AOS-remote-exec";
 
         String str = System.getenv("SELENIUM_ADDRESS");
         if (str != null) {
             clientID = System.getenv("SRF_CLIENT_ID");
             clientSecret = System.getenv("SRF_CLIENT_SECRET");
             SeleniumURL = System.getenv("SELENIUM_ADDRESS");
-            testName = "Selenium/Java-AOS";
+            testName = "Ramesh_Selenium/Java-AOS";
         }
 
         //capabilities.setVersion("latest");
